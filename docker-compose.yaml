@@ -5,3 +5,8 @@ services:
     image: trainwithshubham/node-app:latest
     ports:
       - "8000:8000"
+    volumes:
+      - .:/app  # Mounts the local directory to /app inside the container
+    working_dir: /app
+    command: ["npm", "run", "dev"]  # Adjust this based on your project
+
