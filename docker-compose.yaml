@@ -5,8 +5,4 @@ services:
     build: .
     ports:
       - "8000:8000"
-    volumes:
-      - .:/app  # Mounts the local directory to /app inside the container
-    working_dir: /app
-    command: ["npm", "run", "start"]  # Adjust this based on your project
-
+   
