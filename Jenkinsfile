@@ -21,13 +21,13 @@ pipeline{
                     passwordVariable:"dockerHubPass")]){
                 sh 'echo $dockerHubPass | docker login -u $dockerHubUser --password-stdin'
                 
-                sh "docker push ${env.dockerHubUser}/node-app:latest"
+                sh "docker push $dockerHubUser/node-todo-cicd:latest"
                 }
             }
         }
         stage("Deploy"){
             steps{
-                sh "docker compose down && docker compose up -d --no-deps --build web"
+                sh "docker-compose down && docker-compose up -d --no-deps --build web"
             }
         }
     }
